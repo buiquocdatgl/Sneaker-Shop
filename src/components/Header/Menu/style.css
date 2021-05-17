@@ -1,0 +1,228 @@
+.ground-menu {
+	width: 270px;
+	background-color: #fff;
+	position: fixed;
+	z-index: 101;
+	height: 100%;
+	left: 0;
+	top: 75px;
+	transition: 0.3s ease-in-out;
+	overflow-y: overlay;
+	overflow-x: hidden;
+	box-shadow: 0 16px 17px -12px rgb(0 0 0 / 33%), 0 4px 25px 0 rgb(0 0 0 / 12%),
+		0 8px 10px -5px rgb(243 243 243);
+}
+
+
+/*--------------------nav-toggle--------------------*/
+.ground-menu .nav-toggle {
+	position: relative;
+	display: block;
+	width: 270px;
+	height: 76px;
+	transition: 0.3s ease-in-out;
+	z-index: 16;
+}
+.ground-menu .nav-toggle{
+	position: fixed;
+    display: flex;
+    z-index: 16;
+    background: #fff;
+    height: 30px;
+    width: 30px;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    left: 0;
+    top: 5px;
+    border-radius: 4px;
+    opacity: 0;
+    visibility: hidden;
+}
+
+/* open menu */
+.ground-menu.open {
+	left: 0;
+}
+
+.ground-menu.open .nav-toggle {
+    opacity: 1;
+    left: 280px;
+    visibility: visible;
+}
+
+.ground-menu .nav-toggle i.fa-times {
+    cursor: pointer;
+    color: red;
+}
+
+/*--------------------------------Menu-------------------------------- */
+.ground-menu nav .menu {
+	z-index: 10;
+	padding: 15px 15px 25px 20px;
+	position: relative;
+}
+
+.ground-menu nav .menu li {
+	display: block;
+}
+
+.ground-menu nav .menu > li {
+	animation: slider_menu 0.2s linear forwards;
+	animation-delay: calc(0.2s * var(--i));
+	opacity: 0;
+}
+
+@keyframes slider_menu {
+	0% {
+		transform: translateX(-100px);
+		opacity: 0;
+	}
+	100% {
+		transform: translateY(0px);
+		opacity: 1;
+	}
+}
+
+.ground-menu nav>.menu>li.active-menu {
+    padding: 5px 0;
+}
+
+.ground-menu nav .menu > li > a {
+	font-size: 16px;
+	padding: 5px 0;
+	font-weight: 500;
+	position: relative;
+	text-transform: capitalize;
+	color: #4a5568;
+	line-height: 45px;
+	-webkit-transition: all 0.3s ease;
+	transition: all 0.3s ease;
+	display: flex;
+	padding-left: 70px;
+	align-items: center;
+}
+
+.ground-menu nav .menu > li > a .icon-menu img {
+	width: 35px;
+	height: 35px;
+	position: absolute;
+	left: 30px;
+	top: 50%;
+	transform: translate(-50%, -50%);
+    object-fit: contain;
+    vertical-align: middle;
+    border-style: none;
+}
+
+.ground-menu nav .menu li a i.fa-caret-down {
+	position: absolute;
+	right: 5px;
+	transform: rotate(0deg);
+	transition: all 0.6s ease-in-out;
+	color: #4a5568;
+}
+
+.ground-menu nav .menu li a.active {
+	color: #1890ff;
+	font-weight: 550;
+	padding: 0;
+	display: block;
+	text-align: center;
+	position: relative;
+}
+
+.ground-menu nav .menu li a.active:after {
+	content: "";
+	position: absolute;
+	bottom: 0;
+	width: 50%;
+	height: 3%;
+	background-color: #1890ff;
+	left: 50%;
+	transform: translate(-50%);
+}
+
+.ground-menu nav .menu li a .fa {
+	margin-right: 5px;
+	width: 15px;
+	text-align: center;
+	font-size: 1.2em;
+}
+
+/*--------------------------------Sub Menu-------------------------------- */
+.sub-menu {
+	transition: all 0.3s ease-in-out;
+	overflow-y: auto;
+	display: block;
+	overflow: hidden;
+	position: relative;
+	max-height: 0px;
+	background: #ffff;
+}
+
+.ground-menu nav > .menu > li.active-menu.open > a {
+	color: #1890ff !important;
+	transition: all 0.3s ease-out;
+	position: relative;
+	background-color: #d4f1ff;
+	border-radius: 8px;
+}
+
+.sub-menu > li > a {
+	padding: 5px 0px 5px 24px;
+	font-size: 15px;
+	font-weight: 500;
+	position: relative;
+	text-transform: capitalize;
+	color: #585f6b;
+	line-height: 30px;
+	-webkit-transition: all 0.3s ease;
+	transition: all 0.3s ease;
+	text-align: left;
+	display: block;
+}
+
+.ground-menu nav > .menu > li.active-menu.open .sub-menu {
+	max-height: 1100px;
+}
+
+.ground-menu nav > .menu > li.active-menu.open a i.fa-caret-down {
+	transform: rotate(-180deg);
+	color: #1890ff;
+}
+
+.sub-menu > li > a:hover {
+	transform: translateX(10px);
+	border-radius: 8px;
+	color: #ec1839;
+}
+
+
+/* ----------------Responsive ----------- */
+@media screen and (max-width: 1000px) {
+	.ground-menu nav > .menu > li.active-menu:hover > a {
+		background: none;
+	}
+	.ground-menu nav > .menu > li.active-menu.open > a {
+		background: #d4f1ff;
+	}
+	.ground-menu nav .menu {
+		padding: 0 15px 0 20px;
+	}
+	.sub-menu > li > a {
+		font-weight: 400;
+	}
+	.ground-menu {
+		left: -300px;
+		top: 0;
+	}
+}
+
+@media screen and (max-width: 420px) {
+	.totle-menu i {
+		font-size: 20px;
+	}
+}
+
+
