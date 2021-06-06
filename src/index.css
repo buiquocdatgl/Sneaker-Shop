@@ -23,16 +23,17 @@ a {
 ul {
 	list-style: none;
 }
-body.active {
-	overflow: hidden;
-}
 body {
 	font-size: 16px;
 	font-weight: 400;
-	background: #f3f2ef;
+	background: #f3f2ef !important;
 	line-height: 1.5;
 	font-family: Roboto, Helvetica, Arial, sans-serif;
 }
+body.active {
+	overflow: hidden;
+}
+
 
 #root {
 	width: 100%;

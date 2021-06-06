@@ -100,7 +100,7 @@ html {
 @-ms-viewport {
   width: device-width;
 }
-body {
+/* body {
   margin: 0;
   color: rgba(0, 0, 0, 0.85);
   font-size: 14px;
@@ -109,7 +109,7 @@ body {
   background-color: #fff;
   -webkit-font-feature-settings: 'tnum';
           font-feature-settings: 'tnum';
-}
+} */
 [tabindex='-1']:focus {
   outline: none !important;
 }

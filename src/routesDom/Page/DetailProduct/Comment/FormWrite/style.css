@@ -1,0 +1,35 @@
+.group-form-comment {
+	border-radius: 8px;
+	padding: 10px 40px;
+	box-shadow: 0 1px 6px rgb(239, 233, 242);
+	border: 1px solid rgba(0, 0, 0, 0.15);
+	background: #ffff;
+}
+
+.group-form-comment .group-length-content {
+	position: relative;
+	text-align: right;
+}
+
+.group-form-comment .group-length-content p {
+	font-size: 14px;
+	color: rgb(181, 178, 178);
+	margin-bottom: 0;
+}
+
+.group-form-comment .from-write {
+	border-radius: 8px;
+}
+
+.group-comment .container-comment .ant-avatar {
+	width: 50px;
+	height: 50px;
+}
+.group-comment .container-comment .ant-comment-avatar img {
+	width: 50px;
+	height: 50px;
+}
+
+.group-form-comment .ant-comment-nested {
+    margin-left: 0!important;
+}
