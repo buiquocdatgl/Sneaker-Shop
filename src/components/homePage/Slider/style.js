@@ -7,12 +7,12 @@ const settings = {
     slidesToScroll: 4,
     nextArrow: (
       <div>
-        <i class="fa fa-angle-right right"></i>
+        <i className="fa fa-angle-right right"></i>
       </div>
     ),
     prevArrow: (
       <div>
-        <i class="fa fa-angle-left left"></i>
+        <i className="fa fa-angle-left left"></i>
       </div>
     ),
     responsive: [

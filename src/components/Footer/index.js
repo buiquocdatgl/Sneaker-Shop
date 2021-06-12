@@ -58,7 +58,7 @@ function Footer() {
                                 <a href="https://www.linkedin.com/in/dat-bui-quoc-587401210/" target="_blank" rel="noreferrer noopener"><i className="fa fa-linkedin" /></a>
                                 </li>
                                 <li>
-                                <a href="https://github.com/buiquocdatgl" target="_blank" rel="noreferrer noopener"><i class="fa fa-github" /> </a>
+                                <a href="https://github.com/buiquocdatgl" target="_blank" rel="noreferrer noopener"><i className="fa fa-github" /> </a>
                                 </li>
                                 <li>
                                 <a href="https://www.instagram.com/quocccbinnn/?hl=vi" target="_blank" rel="noreferrer noopener"><i className="fa fa-external-link" /></a>

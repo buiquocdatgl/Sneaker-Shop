@@ -55,14 +55,15 @@ path {
 	stroke: none;
 	stroke-width: 3px;
 }
-/*-------------------Start scrollTop -------------------*/
 
-/* button.scrollTop {
+/* -------------------Start scrollTop -------------------*/
+
+button.scrollTop {
 	background: #06c1d4;
 	color: #ffffff;
 	font-size: 24px;
 	height: 40px;
-	line-height: 37px;
+	line-height: 15px;
 	text-align: center;
 	width: 40px;
 	border-radius: 50%;
@@ -78,32 +79,38 @@ path {
 	transition: 0.3s ease-out;
 	z-index: 99;
 }
+
 button.scrollTop.active {
 	opacity: 1;
 	bottom: 15px;
-}  */
-/* /* ::-webkit-scrollbar {
+} 
+
+::-webkit-scrollbar {
 	width: 6px;
 	transition: 0.3s ease-in;
-} */
-/* ::-webkit-scrollbar-track {
+}
+
+::-webkit-scrollbar-track {
 	border: 5px solid #f1f1f1;
-} */
-/* ::-webkit-scrollbar-thumb {
+}
+
+::-webkit-scrollbar-thumb {
 	background: #06c1d4;
 	border-radius: 3px;
 	z-index: 100;
-} */
-/* .group-start-review {
+}
+
+.group-start-review {
 	text-align: center;
-} */
-/* .group-start-review p {
+}
+
+.group-start-review p {
 	color: #353b48b4;
 	font-size: 14px;
 	font-weight: 500;
 	text-transform: capitalize;
 	margin: 8px 0;
-} */
+}
 
 @media screen and (max-width: 780px) {
 	h2#swal2-title {

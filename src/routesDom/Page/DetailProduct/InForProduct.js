@@ -3,7 +3,7 @@ import Slider from 'react-slick';
 import StarRatings from "react-star-ratings";
 import item1 from '../../../image/puma/puma rsx/puma rs x3 plas tech mist green.jpg';
 import imgFreeShip from '../../../image/freeship.png';
-import { Select, Form, Button, Image, notification } from "antd";
+import { Select, Form, Button, Image } from "antd";
 import item2 from '../../../image/puma/puma rsx/1.jpg';
 import item3 from '../../../image/puma/puma rsx/2.jpg';
 import item4 from '../../../image/puma/puma rsx/3.jpg';
@@ -22,25 +22,31 @@ function InForProduct() {
         });
     }, []);
 
-    const showDetailProducts =[
-        {
-            item: item1
-        },
-        {
-            item: item2
-        },
-        {
-            item: item3
-        },
-        {
-            item: item4
-        },
-    ]
+    const currentProduct = {
+        id: 'puma-1',
+        name: 'Puma Defy Mid Metal',
+        price: 3415000,
+        pictures: [
+            {
+                item: item1,
+            },
+            {
+                item: item2,
+            },
+            {
+                item: item3,
+            },
+            {
+                item: item4,
+            },
+        ]
+    }
+
     const settings = {
         customPaging: function (i) {
           return (
               <a href="">
-                  <img src={showDetailProducts[i].item} alt="" />
+                  <img src={currentProduct.pictures[i].item} alt="" />
               </a>
           )
         },
@@ -68,7 +74,7 @@ function InForProduct() {
             <div className="group-detail">
                 <div className="group-image-detail">
                     <Slider {...settings}>
-                        {showDetailProducts.map((photo) =>(
+                        {currentProduct.pictures.map((photo) =>(
                             <div className="image-array-slider">
                                 <Image src={photo.item} alt="" />
                             </div>
@@ -78,7 +84,7 @@ function InForProduct() {
                 <div className="group-information-detail">
                     <div className="information-detail">
                         <div className="name-detail">
-                            <h3>Puma Defy Mid Metal</h3>
+                            <h3>{currentProduct.name}</h3>
                         </div>
                         <div className="group-description-more">
                             <div className="description-more-info">
@@ -156,18 +162,18 @@ function InForProduct() {
                                     </div>
                                 </div>
                                 <div className="buys-detail">
-                                    <Button
+                                    <Button>
                                         type="primary"
                                         htmlType="submit">
                                         <i className="fa fa-shopping-cart" />
 										chọn mua hàng
 									</Button>
-                                </div>
+..                                </div>
                             </div>
                             <div className="group-price-size">
                                 <div className="group-price">
                                     <span>
-                                        3.415.000 <u>đ</u>
+                                        {currentProduct.price} <u>đ</u>
                                     </span>
                                 </div>
                                 <div className="group-size">

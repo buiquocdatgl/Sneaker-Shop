@@ -15,17 +15,17 @@ function SubMenu({ img, pdName, pdItem, styled }){
         onClick={() => setOpen(!open)}
         style={styled}
         >
-            <a href="#">
+            <a href="#MenuUser">
                 <div className="icon-menu">
-                <img src={img} alt="logoAdidas" />
+                    <img src={img} alt="logoAdidas" />
                 </div>
                 {pdName}
                 <i className="fa fa-caret-down" />
             </a>
             <ul className="sub-menu">
-                {pdItem.map(pd =>(
-                    <li>
-                        <a href="#">{pd}</a>
+                {pdItem.map((pd ,i) =>(
+                    <li key = {i}>
+                        <a href="#MenuUser">{pd}</a>
                     </li>
                 ))}
             </ul>
@@ -39,7 +39,7 @@ function MenuUser() {
       <nav>
           <ul className="menu">
             <li style={{ "--i": "1" }}> 
-                <a href="#" className="active">trang chủ</a>
+                <a href="#MenuUser" className="active">trang chủ</a>
             </li>
             <SubMenu 
                 img={logoAdidas}

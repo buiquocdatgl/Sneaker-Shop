@@ -5,38 +5,7 @@ import './style.css';
 import AOS from "aos";
 import "aos/dist/aos.css";
 
-// for (let i = 0; i < pumapicture.length; i++) {
-//     eval(`var pumma${i} require('${pumalink}.concat(${pumapicture[i]})')` )
-// }
-// import puma3 from '../../../image/puma/puma rsx/Puma Bari Mule Black.jpg'
-// import puma4 from '../../../image/puma/puma rsx/puma carina lift.jpg'
-// import puma5 from '../../../image/puma/puma rsx/puma cell venom.jpg'
-// import puma6 from '../../../image/puma/puma rsx/Puma Defy Mid Metal.jpg'
-// import puma7 from '../../../image/puma/puma rsx/puma mule.jpg'
-// import puma8 from '../../../image/puma/puma rsx/puma rs x3 plas tech mist green.jpg'
-// import puma9 from '../../../image/puma/puma rsx/puma rsx color theory.jpg'
-// import puma10 from '../../../image/puma/puma rsx/puma rsx hard drive.jpg'
-// import puma11 from '../../../image/puma/puma rsx/puma rsx metallic.jpg'
-// import puma12 from '../../../image/puma/puma rsx/puma rsx reinvention.jpg'
-// import puma13 from '../../../image/puma/puma rsx/puma rsx softcase.jpg'
-// import puma14 from '../../../image/puma/puma rsx/puma rsx winter glimmer.jpg'
-// import puma15 from '../../../image/puma/puma rsx/puma rsx3 plas tech.jpg'
-// import puma16 from '../../../image/puma/puma rsx/puma skye stripe.jpg'
-// import puma17 from '../../../image/puma/puma rsx/puma style rider play on.jpg'
-// import puma18 from '../../../image/puma/puma rsx/puma thunder fashion 2.0.jpg'
-// import puma19 from '../../../image/puma/puma rsx/puma thunder spectra.jpg'
-// import puma20 from '../../../image/puma/puma rsx/puma rsx puzzle 2.jpg'
-// import puma21 from '../../../image/puma/puma rsx/puma rsx puzzle.jpg'
-// import puma22 from '../../../image/puma/puma rsx/puma x mtv rsx tracks bold.jpg'
-// import puma23 from '../../../image/puma/puma rsx/puma rsx master.jpg'
-// import puma24 from '../../../image/puma/puma rsx/puma rsx super red.jpg'
-// import puma25 from '../../../image/puma/puma rsx/puma rsx super.jpg'
 
-const pumalink = '../../../image/puma/'
-
-
-
-// const p1 = require('../../../image/puma/puma rsx/Puma Bari Mule Black.jpg').default
 function Card(){
 
     useEffect(() => {
@@ -193,8 +162,8 @@ function Card(){
     ])
     return(
         <>
-            {products.map(item=> (
-                <div className="item-products-type" data-aos={"zoom-in-up"}>
+            {products.map((item , i)=> (
+                <div className="item-products-type" data-aos={"zoom-in-up"} key={i}>
                     <a href="#">
                         <div className="ig-products-type">
                             {/* <img src={require(`${pumalink}${item.type}/${item.imgurl}`).default} alt="" /> */}
@@ -209,7 +178,7 @@ function Card(){
                             <span>{item.price} <u>đ</u> </span>
                         </div>
                     </div>
-                    <div class="group-start-review">
+                    <div className="group-start-review">
                         <StarRatings
                             numberOfStars={5}
                             rating={item.rating}

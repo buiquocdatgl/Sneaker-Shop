@@ -5,9 +5,6 @@ import './style.css';
 import AOS from "aos";
 import "aos/dist/aos.css";
 
-
-const vanslink = '../../../image/vans/'
-
 function Card (){
 
     useEffect(() => {
@@ -141,8 +138,8 @@ function Card (){
 
     return(
         <>
-            {products.map(item =>(
-                <div className="item-products-list" data-aos={"zoom-in-up"}>
+            {products.map((item, i) =>(
+                <div className="item-products-list" data-aos={"zoom-in-up"} key = {i}>
                     <a href="#">
                         <div className="ig-products-list">
                             <img src={require(`../../../image/vans/${item.imgurl}`).default} alt="" />

@@ -39,8 +39,8 @@ function Banner() {
         <div className="ground-banner">
             <div className="list-banner">
                 <Slider {...settings} className="list-item-banner">
-                    {photos.map((photo) =>(
-                        <div className="items-banner">
+                    {photos.map((photo ,i) =>(
+                        <div className="items-banner" key ={i}>
                              <img src={photo.banner}/>
                         </div>
                     ))}

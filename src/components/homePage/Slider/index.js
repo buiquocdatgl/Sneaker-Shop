@@ -3,12 +3,10 @@ import Slider from "react-slick";
 import './style.css';
 import StarRatings from "react-star-ratings";
 import { useState, useEffect } from 'react';
-import con from '../../../image/converse/chuck 70 sunflower high top.jpg'
 import settings from './style';
 import AOS from "aos";
 import "aos/dist/aos.css";
 
-const pumalink = '../../../image/converse'
 
 function SliderHome() {
 
@@ -98,8 +96,8 @@ function SliderHome() {
                 <h3>KHUYẾN MÃI HOT NHẤT</h3>
                 <div className="silder">
                     <Slider {...settings}>
-                        {items.map((item) =>(
-                            <div className="iteml-silder" data-aos={"zoom-in-up"}>
+                        {items.map((item ,i) =>(
+                            <div className="iteml-silder" data-aos={"zoom-in-up"} key={i}>
                                 <a href="#">
                                     <div className="ig-silder">
                                         <img src={require(`../../../image/converse/${item.imgurl}`).default} alt="" />
@@ -110,7 +108,7 @@ function SliderHome() {
                                     <div className="price-sidler">
                                         <span> {item.price} <u>đ</u></span>
                                     </div>
-                                    <div class="group-start-review">
+                                    <div className="group-start-review">
                                         <StarRatings
                                             numberOfStars={5}
                                             rating={item.rating}
