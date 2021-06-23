@@ -17,12 +17,12 @@ function App() {
             <Menu />
             <div className="ground-container">
               <div className="main-container">
-                  <Switch>
-                    {Page.map((page ,i)=> (
-                      <Route path={page.path} exact={page.exact} component={page.component} key={i} />
-                    ))}
-                  </Switch>
-                  <Footer />
+                <Switch>
+                  {Page.map((page ,i)=> (
+                    <Route path={page.path} exact={page.exact} component={page.component} key={i} />
+                  ))}
+                </Switch>
+                <Footer />
               </div>
             </div>
           </Router>

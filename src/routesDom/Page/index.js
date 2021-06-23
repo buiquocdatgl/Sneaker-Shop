@@ -2,6 +2,7 @@ import { lazy } from "react"
 const Home = lazy(()=> import('../../components/homePage/index'))
 const DetailProduct = lazy(()=>import('./DetailProduct/index'))
 const LoginPage = lazy(()=>import('./LoginPage/LoginPage'))
+const ProductResult = lazy(()=>import('./ProductResult/ProductResult'))
 
 export const Page = [
     {
@@ -18,5 +19,10 @@ export const Page = [
         path: 'login-page',
         exact: true,
         component: LoginPage
+    },
+    {
+        path: '/nsx/:id',
+        exact: true,
+        component: ProductResult
     }
 ]

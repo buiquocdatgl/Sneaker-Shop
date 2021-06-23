@@ -9,19 +9,51 @@ import item3 from '../../../image/puma/puma rsx/2.jpg';
 import item4 from '../../../image/puma/puma rsx/3.jpg';
 import AOS from "aos";
 import "aos/dist/aos.css";
+import { useNewContexts } from '../../../contexts/contexts';
 
 const { Option } = Select;
 
+function capitalizeFirstChar (string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+}
+
+
 function InForProduct() {
-
+    
+    const {currentUser} = useNewContexts()
+    const {updateFSDocs, getFSDoc} = useNewContexts()
     const [count, setCount] = useState(1)
+    const [size, setSize] = useState('')
+    const [chosen, setChosen] = useState({})
+    const [product, setProduct] = useState({
 
+    })
+    
+    useEffect(() => {
+        const fetchUser = async() => {
+            const newdata = await getFSDoc('users', currentUser.id)
+            if (newdata) {
+                setChosen(newdata.cart)
+            }
+           return newdata
+        }
+        
+        const fetchProduct = async() => {
+            const newdata = await getFSDoc('addidas','2UBYq2RLSHMEx6VwrUMH')
+            setProduct(newdata)
+        }
+        fetchProduct()
+        setChosen(fetchUser())
+    },[])
     useEffect(() => {
         AOS.init({
             duration : 1100
         });
+        
     }, []);
 
+    const availableSize = [35,36,37,38,39,40,41,42]
+    
     const currentProduct = {
         id: 'puma-1',
         name: 'Puma Defy Mid Metal',
@@ -41,7 +73,7 @@ function InForProduct() {
             },
         ]
     }
-
+    console.log(chosen, currentUser.id)
     const settings = {
         customPaging: function (i) {
           return (
@@ -84,7 +116,7 @@ function InForProduct() {
                 <div className="group-information-detail">
                     <div className="information-detail">
                         <div className="name-detail">
-                            <h3>{currentProduct.name}</h3>
+                            <h3>{product.name}</h3>
                         </div>
                         <div className="group-description-more">
                             <div className="description-more-info">
@@ -162,7 +194,12 @@ function InForProduct() {
                                     </div>
                                 </div>
                                 <div className="buys-detail">
-                                    <Button>
+                                    <Button onClick={()=> {
+                                        setChosen({...product,size: size, quantity: count})
+                                        console.log(chosen)
+                                        // updateFSDocs('users', 'RPHF2ZrfQmcwLuKUjlKjqlATcmo2', product)
+                                        setChosen({})
+                                    }}
                                         type="primary"
                                         htmlType="submit">
                                         <i className="fa fa-shopping-cart" />
@@ -173,7 +210,7 @@ function InForProduct() {
                             <div className="group-price-size">
                                 <div className="group-price">
                                     <span>
-                                        {currentProduct.price} <u>đ</u>
+                                        {product.price} <u>đ</u>
                                     </span>
                                 </div>
                                 <div className="group-size">
@@ -187,17 +224,12 @@ function InForProduct() {
                                         },
                                         ]}
                                     >
-                                        <Select placeholder="size" style={{ width: "100%" }}>
-                                            <Option value="35">35</Option>
-                                            <Option value="35">36</Option>
-                                            <Option value="35">37</Option>
-                                            <Option value="35">38</Option>
-                                            <Option value="35">39</Option>
-                                            <Option value="35">40</Option>
-                                            <Option value="35">41</Option>
-                                            <Option value="35">42</Option>
+                                        <Select onChange={(e)=> setSize(e)} placeholder="size" style={{ width: "100%" }}>
+                                            {availableSize.map(num => (
+                                                <Option value={num}>{num}</Option>
+                                            ))}
                                         </Select>
-                                </Form.Item>
+                                    </Form.Item>
                                 </div>
                             </div>
                         </Form>

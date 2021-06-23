@@ -1,6 +1,6 @@
 import React,{ useContext,useState, useEffect } from "react"
 import {db} from '../firebase/firebase'
-import {google_login} from './authentication'
+import {google_login, log_out} from './authentication'
 import {auth} from '../firebase/firebase'
 
 // Tạo biến Context và sử dụng createContext của React để tạo Context trên biến đó
@@ -11,14 +11,49 @@ export const useNewContexts = () => {
     return useContext(Context)
 }
 
+// Function lấy tất cả docs trong collection của firestore
+const getFSDocs = (collection, set) => {
+    db.collection(collection).get().then(snapshot => {
+        const newData = []
+        snapshot.forEach(doc => {
+            const data = doc.data()
+            newData.push(data)
+        })
+        set(newData)
+    })
+}
+
+// Function thêm data vào collection của firestore
+const addFSDocs = (collection, data) => {
+    db.collection(collection).add(data).then(()=> console.log('Add Success'))
+}
+
+// 
+const getFSDoc = async(collection, id) => {
+    const newdata = await db.collection(collection).doc(id).get().then(doc => {
+        const newdoc = doc.data()
+        if (newdoc) {
+            return newdoc
+        }
+    })
+    return newdata
+}
+
+// Function sửa thông tin doc 
+const updateFSDocs = (collection, doc, field ,data) => {
+    db.collection(collection).doc(doc).update()
+}
+
 // Tạo 1 compononent bọc children với store chứa dữ liệu cung cấp cho children 
 export const ContextProvider = ({children}) => {
     const [loading,setLoading] = useState(true)
     const [currentUser, setCurrentUser] = useState()
+    const [sneakers, setSneakers] = useState([])
     // Tạo store chứa dữ liệu
 
     useEffect(()=> {
         setCurrentUser()
+        getFSDocs('addidas', setSneakers)
         // Call this function when mounted = will call firebase auth.onStateChange and set Current User and Unmount it to cause unsubscribe
         const unsubscribe = auth.onAuthStateChanged( async user=> {
             if (user) {
@@ -41,9 +76,13 @@ export const ContextProvider = ({children}) => {
 
     const store = {
         users: db.collection('users').get().then(doc => doc.docs.map(item => item.data())),
-        addidas: db.collection('addidas').get().then(doc => doc.docs.map(item => item.data())),
+        sneakers,
         google_login,
+        log_out,
         currentUser,
+        addFSDocs,
+        updateFSDocs,
+        getFSDoc
     }
 
     // Xuất component có value={store} cho children sử dụng 
